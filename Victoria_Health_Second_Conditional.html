@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Health, Colds &amp; Second Conditional</title>
+<style>
+:root{color-scheme:light;--bg:#fff1ea;--card:#fffdfb;--ink:#4d3b3f;--mut:#9b7f86;--pk:#ff9db6;--pk2:#ffe3ea;--mt:#86cdf2;--mt2:#e2f3fd;--sn:#ffb36b;--rd:#ff8f7a;--rd2:#ffe5dc;--ln:#f9d9cb;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.hero{padding:22px 16px 14px;text-align:center;background:linear-gradient(135deg,#ffd3de,#ffe1b9 55%,#cfeafb)}
+h1{margin:0;font-size:24px}.sub{margin:4px 0 12px;color:var(--mut);font-size:14px}
+.bar{height:10px;background:var(--card);border-radius:9px;overflow:hidden;max-width:420px;margin:auto}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pk),var(--sn));transition:width .4s}
+#cnt{font-size:13px;color:var(--mut);margin-top:6px}
+main{max-width:640px;margin:auto;padding:14px 12px 40px}
+.card{background:var(--card);border-radius:20px;padding:16px;margin-bottom:14px;border:2px solid var(--ln)}
+.card.done{border-color:var(--mt)}
+h2{margin:0 0 4px;font-size:18px}.card.done h2::after{content:" ✓";color:var(--mt)}
+.instr{margin:0 0 12px;color:var(--mut);font-size:14px}
+button{font:inherit;color:inherit;cursor:pointer}
+.chip{background:var(--pk2);border:2px solid transparent;border-radius:14px;padding:8px 12px;margin:3px;text-align:left}
+.chip.sel{border-color:var(--pk)}.chip.ok{background:var(--mt2);border-color:var(--mt)}.chip.bad{background:var(--rd2);border-color:var(--rd)}
+.fc{display:block;width:100%;margin:6px 0;padding:14px;border-radius:16px;border:2px dashed var(--pk);background:var(--pk2);text-align:center}
+.fc.back{background:var(--mt2);border-color:var(--mt);color:var(--ink)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:6px}.col{display:flex;flex-direction:column}.col .chip{margin:3px 0}
+.q{padding:10px 0;border-top:1px solid var(--ln)}.q:first-of-type{border-top:0}
+.en{margin:0}.ru{margin:2px 0 6px;color:var(--mut);font-size:14px}.log .ru{margin:8px 0}
+.opts{display:flex;flex-wrap:wrap}
+input{font:inherit;width:110px;max-width:34vw;border:0;border-bottom:2px solid var(--pk);background:var(--pk2);color:var(--ink);border-radius:8px 8px 0 0;padding:2px 6px;margin:0 3px}
+input.wide{width:100%;max-width:100%;margin:4px 0}
+input.ok{border-color:var(--mt);background:var(--mt2)}input.bad{border-color:var(--rd);background:var(--rd2)}
+.w{display:inline-block;font-size:12px;font-weight:700;background:var(--sn);color:#4a3a00;border-radius:8px;padding:1px 7px;margin-left:4px}
+.go{margin-top:10px;background:var(--pk);color:#fff;border:0;border-radius:14px;padding:10px 18px;font-weight:700}
+.ans{min-height:46px;border:2px dashed var(--ln);border-radius:14px;padding:4px;margin:6px 0}.ans.ok{border-color:var(--mt);background:var(--mt2)}.ans.bad{border-color:var(--rd);background:var(--rd2)}
+.bank{display:flex;flex-wrap:wrap}
+.txt{background:var(--pk2);border-radius:14px;padding:6px 12px;margin-bottom:10px}
+.boss{background:linear-gradient(135deg,var(--pk2),var(--mt2));border-radius:14px;padding:8px 12px;margin-bottom:8px}
+.hp{height:10px;border-radius:8px;background:var(--card);overflow:hidden}.hp i{display:block;height:100%;width:100%;background:var(--rd);transition:width .3s}
+.lv{color:var(--rd);letter-spacing:2px}
+#fin{display:none;text-align:center;font-weight:700;padding:14px}
+
+.lesson-page{display:block;min-height:100vh}
+#lesson3{--bg:#f2f8f4;--card:#ffffff;--ink:#405b50;--mut:#829b8d;--pk:#83bfa1;--pk2:#e5f4eb;--mt:#80c8bd;--mt2:#e4f7f3;--sn:#b4d9a7;--rd:#e99b9b;--rd2:#fff0ed;--ln:#d5eadc}
+#lesson3 .hero{background:linear-gradient(135deg,#dff3e5,#e3f3f5 55%,#f8e9ee)}
+#lesson3 .bar i{background:linear-gradient(90deg,#80c8a0,#80c8bd)}
+#lesson3 .chip{background:#e5f4eb}
+#lesson3 .go{background:linear-gradient(100deg,#83bfa1,#80c8bd)}
+#lesson3 .fc{border-color:#83bfa1;background:#e5f4eb}
+#lesson3 .fc.back{background:#e4f7f3;border-color:#80c8bd}
+#lesson3 #fin3{display:none;text-align:center;font-weight:800;padding:18px;color:#56836d}
+@media(max-width:390px){}
+</style>
+</head>
+<body>
+<section id="lesson3" class="lesson-page active">
+  <header class="hero">
+    <h1>🩺 Health, Colds & Second Conditional</h1>
+    <p class="sub">Симптомы, простуда, самочувствие и полезные советы · уровень B1 💗</p>
+    <div class="bar"><i id="pb3"></i></div><div id="cnt3"></div>
+  </header>
+  <main id="app3"></main>
+  <div id="fin3">Отличная работа! Ты уверенно используешь Second Conditional в теме здоровья! 🌷</div>
+</section>
+<script>
+const h=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.innerHTML=x;return e};
+const norm=s=>s.toLowerCase().replace(/[’`]/g,"'").replace(/[.,!?]/g,"").replace(/\s+/g," ").trim();
+const shuf=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+let dn=0;
+const EJ=[];
+const EMJ=s=>{const m=EJ.find(x=>x[0].test(s));return m?m[1]:""};const EM=s=>s+" "+EMJ(s);
+const IC=[];
+function flip(el,d,done){let n=0;d.forEach(([e,r,pron])=>{e=EM(e);const c=h("button","fc",pron?e+"<br><small>"+pron+"</small>":e);let o=0;c.onclick=()=>{o=!o;c.innerHTML=o?r:e;c.classList.toggle("back",o);if(o&&!c.s){c.s=1;if(++n==d.length)done()}};el.append(c)})}
+function match(el,d,done){const L=h("div","col"),R=h("div","col"),log=h("div","log"),g=h("div","two");let sl=null,sr=null,n=0;
+const mk=(t,i,side)=>{const b=h("button","chip",t);b.onclick=()=>{if(b.classList.contains("ok"))return;(side?R:L).querySelectorAll(".sel").forEach(x=>x.classList.remove("sel"));b.classList.add("sel");if(side)sr=[i,b];else sl=[i,b];
+if(sl&&sr){if(sl[0]==sr[0]){sl[1].className=sr[1].className="chip ok";log.append(h("p","ru",EM(d[i][0]+" "+d[i][1])+"<br><i>"+d[i][2]+"</i>"));if(++n==d.length)done()}else[sl[1],sr[1]].forEach(x=>{x.classList.remove("sel");x.classList.add("bad");setTimeout(()=>x.classList.remove("bad"),500)});sl=sr=null}};return b};
+d.forEach((p,i)=>L.append(mk(p[0],i,0)));shuf(d.map((p,i)=>i)).forEach(i=>R.append(mk(d[i][1],i,1)));g.append(L,R);el.append(g,log)}
+function mc(el,d,done,cb){let n=0;d.forEach(q=>{const b=h("div","q","<p class=en>"+EM(q.s)+"</p><p class=ru>"+q.r+"</p>"),o=h("div","opts");
+q.o.forEach(t=>{const x=h("button","chip",t);x.onclick=()=>{if(b.s||b.l)return;if(t==q.a){x.classList.add("ok");b.s=1;cb&&cb(1);if(++n==d.length)done()}else{x.classList.add("bad");cb&&cb(0)}};o.append(x)});b.append(o);el.append(b)})}
+function typ(el,d,done){const rows=d.map(q=>{const [a,b]=q.s.split("___"),r=h("div","q","<p class=en>"+a+"<input autocomplete=off autocapitalize=off spellcheck=false>"+b+" "+EMJ(q.s)+" <span class=w>"+q.w+"</span></p><p class=ru>"+q.r+"</p>");el.append(r);return r});
+const btn=h("button","go","Проверить");btn.onclick=()=>{let ok=0;rows.forEach((r,i)=>{const i2=r.querySelector("input"),g=d[i].a.includes(norm(i2.value));i2.className=g?"ok":"bad";ok+=g});btn.textContent="Проверить ещё раз ("+ok+"/"+d.length+")";if(ok==d.length)done()};el.append(btn)}
+function build(el,d,done,tr){let n=0;d.forEach(q=>{const A=tr==2?q.r:q.e,box=h("div","q"),pr=h("p","ru",tr==1?q.r+" "+EMJ(q.e):tr==2?q.e+" "+EMJ(q.e):q.r+" ✍️"),ans=h("div","ans"),bk=h("div","bank"),c=h("button","go","Проверить");
+const mk=t=>{const b=h("button","chip",t);b.onclick=()=>{if(box.ok)return;(b.parentNode==bk?ans:bk).append(b)};return b};
+shuf(A.split(" ").concat(q.x||[])).forEach(t=>bk.append(mk(t)));
+c.onclick=()=>{const s=[...ans.children].map(b=>b.textContent).join(" ");if(norm(s)==norm(A)){box.ok=1;ans.classList.add("ok");if(++n==d.length)done()}else{ans.classList.add("bad");setTimeout(()=>ans.classList.remove("bad"),500)}};
+box.append(pr,ans,bk,c);el.append(box)})}
+function tf(el,t,qs,done){const tx=h("div","txt");t.forEach(e=>tx.append(h("p","en",e[0]),h("p","ru",e[1])));el.append(tx);let n=0;
+qs.forEach(q=>{const b=h("div","q","<p class=en>"+EM(q.s)+"</p><p class=ru>"+q.r+"</p>"),o=h("div","opts");
+["True","False"].forEach(t=>{const x=h("button","chip",t);x.onclick=()=>{if(b.s)return;if((t=="True")==q.a){x.classList.add("ok");b.s=1;if(++n==qs.length)done()}else x.classList.add("bad")};o.append(x)});b.append(o);el.append(b)})}
+function boss(el,d,done){const run=()=>{el.innerHTML="";let hp=d.length,lv=3;const top=h("div","boss","<b>Экзаменатор</b> <span class=lv></span><div class=hp><i></i></div>"),L=top.querySelector(".lv"),B=top.querySelector("i"),body=h("div");
+const up=()=>{L.textContent="♥".repeat(lv);B.style.width=hp/d.length*100+"%"};up();el.append(top,body);
+mc(body,d,done,ok=>{if(ok){hp--;up()}else{lv--;up();if(!lv){body.querySelectorAll(".q").forEach(q=>q.l=1);const r=h("button","go","Босс победил. Попробовать снова");r.onclick=run;body.append(r)}}})};run()}
+
+function fix(el,d,done){let n=0;d.forEach(q=>{const b=h("div","q"),o=h("div","opts");
+q.s.split(" ").forEach((t,i)=>{const x=h("button","chip",t);x.onclick=()=>{if(b.s)return;if(i==q.i){b.s=1;x.className="chip ok";x.textContent=q.c;if(++n==d.length)done()}else{x.classList.add("bad");setTimeout(()=>x.classList.remove("bad"),500)}};o.append(x)});
+b.append(h("p","ru",q.r),o);el.append(b)})}
+function trn(el,d,done){let t=0;const rows=d.map(q=>{const r=h("div","q","<p class=en>"+q.r+"</p><p class=ru><i>"+q.w+"</i></p><input class=wide autocomplete=off autocapitalize=off spellcheck=false><p class=ru></p>");el.append(r);return r});
+const btn=h("button","go","Проверить");btn.onclick=()=>{t++;let ok=0;rows.forEach((r,i)=>{const n=r.querySelector("input"),g=new RegExp("^("+d[i].a+")$").test(norm(n.value));n.className="wide "+(g?"ok":"bad");r.querySelector("p:last-child").textContent=!g&&t>1?"Подсказка: "+d[i].h:"";ok+=g});btn.textContent="Проверить ещё раз ("+ok+"/"+d.length+")";if(ok==d.length)done()};el.append(btn)}
+
+function renderSet(data,appId,pbId,cntId,finId){
+ const app=document.getElementById(appId),pb=document.getElementById(pbId),cnt=document.getElementById(cntId),fin=document.getElementById(finId);
+ let completed=0;cnt.textContent="0 / "+data.length;
+ data.forEach((x,i)=>{const c=h("section","card","<h2>"+(i+1)+". "+x.t+"</h2><p class=instr>"+x.i+"</p>"),b=h("div");c.append(b);app.append(c);
+ let ok=0;x.f(b,()=>{if(ok)return;ok=1;c.classList.add("done");completed++;pb.style.width=completed*100/data.length+"%";cnt.textContent=completed+" / "+data.length;if(completed===data.length)fin.style.display="block"})});
+}
+const E3 = [
+ {t:"🤒 Health vocabulary: карточки",i:"Нажми на карточку, чтобы увидеть перевод. Повтори слова о симптомах простуды.",f:(e,d)=>flip(e,[
+  ["a sore throat","боль в горле","э сор сроут"],["a blocked nose","заложенный нос","э блокт ноуз"],["a runny nose","насморк","э ранни ноуз"],["to sneeze","чихать","ту снииз"],["to cough","кашлять","ту коф"],["a headache","головная боль","э хэдэйк"],["a high temperature","высокая температура","э хай тэмпрэчэ"],["to feel dizzy","чувствовать головокружение","ту фиил дИзи"],["to feel exhausted","чувствовать сильную усталость","ту игзОстид"],["to catch a cold","простудиться","ту кэч э коулд"]
+ ],d)},
+ {t:"🔗 Найди пару: symptoms & advice",i:"Соедини симптом с подходящим советом.",f:(e,d)=>match(e,[
+  ["If you had a sore throat,","you could drink warm tea with honey.","Если бы у тебя болело горло, ты могла бы выпить тёплый чай с мёдом."],
+  ["If you had a high temperature,","you should check it and get some rest.","Если бы у тебя была высокая температура, тебе стоило бы измерить её и отдохнуть."],
+  ["If your nose were blocked,","you might find it difficult to sleep.","Если бы у тебя был заложен нос, тебе могло бы быть трудно спать."],
+  ["If you felt dizzy,","you shouldn’t drive a car.","Если бы у тебя кружилась голова, тебе не стоило бы садиться за руль."],
+  ["If you caught a cold,","you would probably feel tired and weak.","Если бы ты простудилась, ты, вероятно, чувствовала бы усталость и слабость."]
+ ],d)},
+ {t:"💡 Выбери правильную форму",i:"Выбери правильный вариант Second Conditional.",f:(e,d)=>mc(e,[
+  {s:"If I ___ a temperature, I would stay at home.",o:["have","had","would have"],a:"had",r:"Если бы у меня была температура, я бы осталась дома."},
+  {s:"If Victoria felt ill, she ___ the doctor.",o:["would call","will call","called"],a:"would call",r:"Если бы Виктория плохо себя чувствовала, она бы позвонила врачу."},
+  {s:"If Umka ___ barking, Victoria could get some sleep.",o:["stops","stopped","would stop"],a:"stopped",r:"Если бы Умка перестал лаять, Виктория могла бы поспать."},
+  {s:"She wouldn’t go to work if she ___ a bad cold.",o:["has","had","would have"],a:"had",r:"Она бы не пошла на работу, если бы сильно простудилась."},
+  {s:"What ___ you do if you had a terrible headache?",o:["will","would","did"],a:"would",r:"Что бы ты сделала, если бы у тебя ужасно болела голова?"},
+  {s:"If I were you, I ___ some rest.",o:["would get","will get","got"],a:"would get",r:"На твоём месте я бы немного отдохнула."}
+ ],d)},
+ {t:"✍️ Впиши глагол: cold symptoms",i:"Поставь глагол в скобках в правильную форму.",f:(e,d)=>typ(e,[
+  {s:"If Victoria ___ a cold, she would stay in bed.",w:"(have)",a:["had"],r:"Если бы Виктория простудилась, она бы осталась в постели."},
+  {s:"If my throat ___ sore, I would drink warm tea.",w:"(be)",a:["were","was"],r:"Если бы у меня болело горло, я бы пила тёплый чай."},
+  {s:"She ___ better if she got enough sleep.",w:"(feel)",a:["would feel"],r:"Она бы чувствовала себя лучше, если бы достаточно спала."},
+  {s:"If Umka ___ so loudly, Victoria could rest.",w:"(not bark)",a:["didn't bark","did not bark"],r:"Если бы Умка не лаял так громко, Виктория могла бы отдохнуть."},
+  {s:"What ___ you do if you felt dizzy?",w:"(do)",a:["would"],r:"Что бы ты сделала, если бы у тебя закружилась голова?"}
+ ],d)},
+ {t:"🧩 Собери предложение",i:"Собери предложение из слов в правильном порядке.",f:(e,d)=>build(e,[
+  {e:"If I had a sore throat, I would drink warm tea",r:"Если бы у меня болело горло, я бы пила тёплый чай.",x:["will","has"]},
+  {e:"Victoria would stay at home if she had a high temperature",r:"Виктория осталась бы дома, если бы у неё была высокая температура.",x:["will","has"]},
+  {e:"If Umka were quieter, she could get some sleep",r:"Если бы Умка был потише, она могла бы немного поспать.",x:["is","will"]},
+  {e:"What would you do if you caught a cold before a holiday",r:"Что бы ты сделала, если бы простудилась перед отпуском?",x:["catch","will"]}
+ ],d,0)},
+ {t:"🇷🇺 Переведи на английский",i:"Впиши полный перевод. После второй попытки появится подсказка.",f:(e,d)=>trn(e,[
+  {r:"Если бы у меня был насморк, я бы взяла бумажные платки.",w:"(насморк — a runny nose; бумажные платки — tissues)",a:"if i had a runny nose i would take tissues",h:"If I had a runny nose, I would take tissues."},
+  {r:"Если бы Виктория кашляла, она бы осталась дома.",w:"(кашлять — cough; остаться — stay)",a:"if viktoria coughed she would stay at home",h:"If Victoria coughed, she would stay at home."},
+  {r:"Что бы ты сделала, если бы у тебя кружилась голова?",w:"(кружиться — feel dizzy)",a:"what would you do if you felt dizzy",h:"What would you do if you felt dizzy?"},
+  {r:"На месте Виктории я бы измерила температуру.",w:"(на месте — if I were; измерить — take)",a:"if i were viktoria i would take my temperature",h:"If I were Victoria, I would take my temperature."},
+  {r:"Если бы она лучше спала, она бы чувствовала себя бодрее.",w:"(чувствовать себя — feel; бодрее — more energetic)",a:"if she slept better she would feel more energetic",h:"If she slept better, she would feel more energetic."}
+ ],d)},
+ {t:"🎤 Скажи по-английски",i:"Прочитай русскую фразу и произнеси её по-английски. Затем открой карточку.",f:(e,d)=>flip(e,[
+  ["Если бы я простудилась, я бы отменила все планы.","If I caught a cold, I would cancel all my plans."],
+  ["Если бы у Виктории болело горло, она бы пила тёплый чай.","If Victoria had a sore throat, she would drink warm tea."],
+  ["Если бы у меня был сильный кашель, я бы обратилась к врачу.","If I had a bad cough, I would see a doctor."],
+  ["Если бы она не чувствовала слабость, она бы пошла на работу.","If she didn’t feel weak, she would go to work."],
+  ["На твоём месте я бы больше отдыхала.","If I were you, I would get more rest."]
+ ],d)},
+ {t:"📖 A cold rainy walk: reading B1",i:"Прочитай историю о самочувствии Виктории. Затем ответь True или False.",f:(e,d)=>tf(e,[
+  ["After a long walk with Umka, Victoria came home feeling cold and exhausted. Her jacket was damp because it had started raining in the park. 🌧️",""],
+  ["That evening, she developed a sore throat and a blocked nose. She kept sneezing, had a mild headache and felt unusually weak. She checked her temperature, but it was normal. 🤧",""],
+  ["The next morning, Victoria woke up with a runny nose and a dry cough. She decided to stay at home, drink plenty of fluids and get some rest instead of going to work. 🍵",""],
+  ["If she had a high temperature or her symptoms became worse, she would contact a healthcare professional. She also knew that antibiotics were not a routine treatment for an ordinary cold. 🩺",""],
+  ["Umka stayed quietly beside her. Victoria wished she had worn a warmer jacket. If she recovered quickly, she would take him for a shorter walk when the weather improved. 🐶",""]
+ ],[
+  {s:"Victoria’s jacket was damp after the walk.",a:true,r:"It had started raining, so her jacket got damp."},
+  {s:"She had a sore throat, a blocked nose and a headache.",a:true,r:"These symptoms appeared that evening."},
+  {s:"Victoria had a high temperature that evening.",a:false,r:"Her temperature was normal."},
+  {s:"She decided to go to work the next morning.",a:false,r:"She stayed at home to rest."},
+  {s:"She would contact a healthcare professional if her symptoms became worse.",a:true,r:"The text says she would seek professional advice."}
+ ],d)},
+ {t:"👑 Финальный босс: healthy choices",i:"6 вопросов, 3 жизни. Выбери правильную форму Second Conditional.",f:(e,d)=>boss(e,[
+  {s:"If I ___ a high temperature, I would stay in bed.",o:["have","had","would have"],a:"had",r:"Если бы у меня была высокая температура, я бы осталась в постели."},
+  {s:"If Victoria felt worse, she ___ medical advice.",o:["would seek","will seek","sought"],a:"would seek",r:"Если бы Виктории стало хуже, она бы обратилась за медицинской консультацией."},
+  {s:"What would you do if you ___ a persistent cough?",o:["have","had","would have"],a:"had",r:"Что бы ты сделала, если бы у тебя был постоянный кашель?"},
+  {s:"If Umka ___ barking, she could sleep.",o:["stops","stopped","would stop"],a:"stopped",r:"Если бы Умка перестал лаять, она могла бы поспать."},
+  {s:"She wouldn’t feel so exhausted if she ___ enough.",o:["rests","rested","would rest"],a:"rested",r:"Она бы не чувствовала себя такой уставшей, если бы достаточно отдыхала."},
+  {s:"If I were you, I ___ antibiotics without medical advice.",o:["wouldn’t take","won’t take","didn’t take"],a:"wouldn’t take",r:"На твоём месте я бы не принимала антибиотики без медицинской рекомендации."}
+ ],d)}
+];
+renderSet(E3,"app3","pb3","cnt3","fin3");
+</script>
+</body>
+</html>
